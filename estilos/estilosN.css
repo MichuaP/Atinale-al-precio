@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  /*background: url('../img/fondo.jpg') no-repeat center center fixed;*/
+  /*background-size: contain;*/
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 95vh;
+  justify-content: center;
+}
+
+.container_Inicio {
+  text-align: center;
+}
+
+.container_Inicio p {
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  font-weight: bold;
+}
