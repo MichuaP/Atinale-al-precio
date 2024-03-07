@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Rockstone";
+  src: url("../fonts/Rockstone-Regular.ttf");
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  /* background: radial-gradient(ellipse at top left, #334455 0%, #112233 100%); */
+  /* background-color: black;  */
+  background-image: url("../img/fondoC.png");
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 95vh;
+}
+
+.wrapper {
+  overflow: hidden;
+  margin-top: 100px;
+  border: 3px solid gray;
+  height: 500px;
+}
+
+.credit {
+  position: relative;
+  width: 400px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+  color: #fff;
+  /* animation: 60s credits linear infinite; */
+  display: inline;
+  animation: 60s credits linear infinite alternate;
+}
+
+.movie {
+  margin-bottom: 50px;
+  font-size: 80px;
+}
+
+.job {
+  margin-bottom: 5px;
+  font-size: 38px;
+}
+
+.name {
+  margin-bottom: 50px;
+  font-size: 65px;
+}
+
+@keyframes credits {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: -500%;
+  }
+}
+.boton{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:right;
+  margin-right: 40px;
+}
+.boton .btn{
+
+  padding: 5px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+}
