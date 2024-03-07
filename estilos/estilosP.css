@@ -22,7 +22,7 @@ body {
 .wrapper {
   overflow: hidden;
   margin-top: 100px;
-  border: 3px solid gray;
+  /* border: 3px solid gray; */
   height: 500px;
 }
 
