@@ -9,8 +9,6 @@ body {
 }
 
 body {
-  /* background: radial-gradient(ellipse at top left, #334455 0%, #112233 100%); */
-  /* background-color: black;  */
   background-image: url("../img/fondoC.png");
   background-repeat: no-repeat;
   overflow: hidden;
@@ -22,7 +20,6 @@ body {
 .wrapper {
   overflow: hidden;
   margin-top: 100px;
-  /* border: 3px solid gray; */
   height: 500px;
 }
 
@@ -34,7 +31,6 @@ body {
   text-transform: uppercase;
   text-shadow: 2px 2px rgb(0, 0, 0);
   color: #fff;
-  /* animation: 60s credits linear infinite; */
   display: inline;
   animation: 60s credits linear infinite alternate;
 }
@@ -63,6 +59,9 @@ body {
     top: -500%;
   }
 }
+
+/*------------------------------------*/
+
 .boton{
   display: flex;
   flex-wrap: wrap;
@@ -77,4 +76,40 @@ body {
   border-radius: 5px;
   color: #fff;
   text-shadow: 1px 1px rgb(0, 0, 0);
+}
+.btnJugar{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnJugar .btn2{
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  font-size: 50px;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+.cajaNombre .input_box{
+  padding: 10px;
+  border: 3px solid black;
+  font-size: 70px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+  font: 600 60px/1 "Rockstone", sans-serif;
+}
+
+.cajaNombre{
+  text-align: center;
+  margin-top: 40px;
+}
+.imagen{
+  text-align: center;
+  margin-top: 100px;
 }
