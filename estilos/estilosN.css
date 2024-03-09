@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Rockstone-Regular';
+  src: url(../font/Rockstone-Regular.ttf);
+}
+
+/* ------------------ INICIO ---------------------- */
 body {
   margin: 0;
   padding: 0;
@@ -15,7 +21,10 @@ body {
 }
 
 .container_Inicio p {
-  color: white;
-  font-size: 50px;
+  color: black;
+  font-size: 80px;
   font-weight: bold;
+  font-family: 'Rockstone-Regular';
+  margin-top: 10px;
+
 }
