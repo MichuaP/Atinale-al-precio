@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el Precio</title>
+    <link rel="stylesheet" href="estilos/estilosLocal.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="tablaPuntuaciones">
+        <thead>
+            <tr>
+                <th>Alias</th>
+                <th>Puntuación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se agregarán las filas dinámicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtener datos del localStorage
+            const puntuaciones = JSON.parse(localStorage.getItem('puntuaciones')) || [];
+
+            // Ordenar puntuaciones de menor a mayor
+            puntuaciones.sort((a, b) => a.puntuacion - b.puntuacion);
+
+            // Obtener la tabla
+            const tabla = document.getElementById('tablaPuntuaciones');
+            const tbody = tabla.querySelector('tbody');
+
+            // Agregar filas a la tabla
+            puntuaciones.forEach(puntuacion => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `<td>${puntuacion.usuario}</td><td>${puntuacion.puntuacion}</td>`;
+                tbody.appendChild(fila);
+            });
+        });
+    </script>
+</body>
+
+</html>
