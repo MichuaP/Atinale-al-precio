@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "Rockstone";
+  src: url("../fonts/Rockstone-Regular.ttf");
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-image: url("../img/fondoC.png");
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 95vh;
+}
+
+.wrapper {
+  overflow: hidden;
+  margin-top: 100px;
+  height: 500px;
+}
+
+.credit {
+  position: relative;
+  width: 400px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+  color: #fff;
+  display: inline;
+  animation: 60s credits linear infinite alternate;
+}
+
+.movie {
+  margin-bottom: 50px;
+  font-size: 80px;
+}
+
+.job {
+  margin-bottom: 5px;
+  font-size: 38px;
+}
+
+.name {
+  margin-bottom: 50px;
+  font-size: 65px;
+}
+
+@keyframes credits {
+  0% {
+    top: 100%;
+  }
+
+  100% {
+    top: -500%;
+  }
+}
+
+/*------------------------------------*/
+
+.boton{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:right;
+  margin-right: 40px;
+}
+.boton .btn{
+
+  padding: 5px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+}
+.btnJugar{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnJugar .btn2{
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  font-size: 50px;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
+.cajaNombre .input_box{
+  padding: 10px;
+  border: 3px solid black;
+  font-size: 70px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+  font: 600 60px/1 "Rockstone", sans-serif;
+}
+
+.cajaNombre{
+  text-align: center;
+  margin-top: 40px;
+}
+.imagen{
+  text-align: center;
+  margin-top: 100px;
+}
