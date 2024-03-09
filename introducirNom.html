@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adivina el Precio</title>
-</head>
-<body>
-    <h1>Ingresa tu nombre</h1>
-</body>
+    <link rel="stylesheet" href="estilos/estilosP.css">
+  </head>
+  <body>
+    <div class="imagen">
+      <img src="img/user.png" alt="">
+    </div>
+    <div class="cajaNombre">
+      <input type="text" id="alias" class="input_box" placeholder="Tu alias aqui...">
+    </div>
+    <div class="btnJugar">
+      <button class="btn2" onclick="irJuego()">Jugar</button>
+    </div>
+    <script>
+      function irJuego(){
+        localStorage.alias = document.getElementById("alias").value;
+        window.location.href = "juego.html";
+      }
+    </script>
+
+  </body>
 </html>
