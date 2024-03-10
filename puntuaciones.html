@@ -45,7 +45,7 @@
             // Agregar filas a la tabla
             puntuaciones.forEach(puntuacion => {
                 const fila = document.createElement('tr');
-                fila.innerHTML = `<td>${puntuacion.alias}</td><td>${puntuacion.alias}</td><td>${puntuacion.alias}</td>`;
+                fila.innerHTML = `<td>${puntuacion.alias}</td><td>${puntuacion.puntuaciones}</td><td>${puntuacion.tiempo}</td>`;
                 tbody.appendChild(fila);
             });
         });
