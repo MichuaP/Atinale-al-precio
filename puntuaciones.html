@@ -6,24 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adivina el Precio</title>
     <link rel="stylesheet" href="estilos/estilosLocal.css">
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 50%;
-            margin: 20px auto;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 
 <body>
@@ -31,14 +13,21 @@
         <thead>
             <tr>
                 <th>Alias</th>
-                <th>Puntuación</th>
+                <th>Puntuacion</th>
             </tr>
         </thead>
         <tbody>
             <!-- Aquí se agregarán las filas dinámicamente -->
         </tbody>
     </table>
-
+    <div class="boton">
+        <button class="btn" onclick="irInicio()">Regresar</button>
+      </div>
+      <script>
+        function irInicio(){
+          window.location.href = "index.html";
+        }
+      </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Obtener datos del localStorage
