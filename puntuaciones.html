@@ -14,6 +14,7 @@
             <tr>
                 <th>Alias</th>
                 <th>Puntuacion</th>
+                <th>Tiempo</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +34,7 @@
             // Obtener datos del localStorage
             const alias = JSON.parse(localStorage.getItem('alias')) || [];
             const puntuaciones = JSON.parse(localStorage.getItem('puntuaciones')) || [];
-
+            const tiempo = JSON.parse(localStorage.getItem('tiempo')) || [];
             // Ordenar puntuaciones de menor a mayor
             puntuaciones.sort((a, b) => a.puntuacion - b.puntuacion);
 
