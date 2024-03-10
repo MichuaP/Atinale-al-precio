@@ -3,8 +3,7 @@
     src: url("../fonts/Rockstone-Regular.ttf");
   }
   
-  html,
-  body {
+  html, body {
     height: 100%;
   }
   
@@ -18,53 +17,52 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "Rockstone";
+    src: url("../fonts/Rockstone-Regular.ttf");
+    font-size: 30px;
+    text-align: center;
+    
   }
+
+  table{
+    text-align: center;
+    margin: 50px auto;
+    width: 700px;
+    font: 300 30px/1 "Rockstone", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    color: #fff;
+    border-collapse: collapse;
+    padding: 40px;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    border-radius: 8px;
+   overflow: hidden;
+  }
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+    background-color: #FFF300;
+}
   /*------------------------------------*/
   
-  .boton{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:right;
-    margin-right: 40px;
-  }
-  .boton .btn{
-  
-    padding: 5px;
-    font: 300 30px/1 "Rockstone", sans-serif;
-    background: #FFF300;
-    border-radius: 5px;
-    color: #fff;
-    text-shadow: 1px 1px rgb(0, 0, 0);
-  }
-  .btnJugar{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .btnJugar .btn2{
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
-    font: 300 30px/1 "Rockstone", sans-serif;
-    font-size: 50px;
-    background: #FFF300;
-    border-radius: 5px;
-    color: #fff;
-    text-shadow: 1px 1px rgb(0, 0, 0);
-  }
-  
-  .CajaLocal .input_box{
-    padding: 10px;
-    border: 3px solid black;
-    font-size: 70px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
-    font: 600 60px/1 "Rockstone", sans-serif;
-  }
-  
-  .CajaLocal{
-    text-align: center;
-    margin-top: 40px;
-  }
+.boton{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:right;
+  margin-right: 40px;
+}
+
+.boton .btn{
+  padding: 5px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+}
