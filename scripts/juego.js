@@ -162,16 +162,16 @@ function dibujarJuego(items) {
       const precioId = e.dataTransfer.getData("text/plain");
       const precioElement = document.getElementById(precioId);
     
-      // Obtener la ruta de la imagen del objeto y precio
-      const objetoImagePath = items.objetos[index]; // Asegúrate de tener la variable 'index' disponible
-      const precioImagePath = items.precios[index]; // Asegúrate de tener la variable 'index' disponible
+      // // Obtener la ruta de la imagen del objeto y precio
+      // const objetoImagePath = items.objetos[index];
+      // const precioImagePath = items.precios[index];
     
-      // Verificar si las rutas de las imágenes coinciden
-      if (objetoImagePath === precioImagePath) {
-        alert("¡Acertado!");
-      } else {
-        alert("¡Falló!");
-      }
+      // // Verificar si las rutas de las imágenes coinciden
+      // if (objetoImagePath === precioImagePath) {
+      //   alert("¡Acertado!");
+      // } else {
+      //   alert("¡Falló!");
+      // }
     });
   });
 }
