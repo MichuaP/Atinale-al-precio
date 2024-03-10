@@ -1,11 +1,80 @@
 @font-face {
     font-family: 'Rockstone-Regular';
-    src: url(../font/Rockstone-Regular.ttf);
+    src: url(../fonts/Rockstone-Regular.ttf);
   }
 
 /* ------------------ JUEGO ---------------------- */
-canvas {
+#gameCanvas {
   border: 1px solid #000;
-  display: block;
+  height: 250px;
+  width: 1200px;
   margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+}
+#objetosPrecio {
+  border: 1px solid #000;
+  height: 100px;
+  width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+}
+
+.precio{
+  border: 1px solid black;
+  height: 100px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#score {
+  font-family: 'Rockstone-Regular';
+  font-size: 36px;
+}
+
+
+.objeto{
+  border: 1px solid black;
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.objeto img{
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.precio img{
+  max-width: 200px;
+  max-height: 70px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.pantalla {
+  text-align: center;
+  font-size: 150px;
+  background-color: #ffffff00;
+  color: #fff300;
+  font-family: 'Rockstone-Regular';
+  text-shadow: 2px 2px 0 #ceba08, 4px 4px 0 #ceba08;
 }

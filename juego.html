@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="estilos/estilosN2.css">
     <script src="scripts/juego.js"></script>
     <title>Atínale al Precio</title>
     <link rel="stylesheet" href="estilos/estilosG.css">
 </head>
 <body>
+  <div id="overlay">
+    <div class="pantalla">
+        <p class="animate__animated animate__zoomIn animate__fast">A jugar!</p>
+    </div>
+  </div>
   <div id="top">
     <div id="score">Puntaje: <span id="scoreValue">0</span></div>
     <div id="tiempo">
@@ -22,7 +28,16 @@
       <i class="fa-solid fa-lg fa-volume-high" id="musicIcon"></i>
     </div>
   </div>
-  <canvas id="gameCanvas" width="1200" height="500"></canvas>
-  <script src="scripts/scriptN.js"></script>
+  <div id="gameCanvas">
+    <div id="objeto1" class="objeto"></div>
+    <div id="objeto2" class="objeto"></div>
+    <div id="objeto3" class="objeto"></div>
+  </div>
+  <div id="objetosPrecio">
+    <div id="precio1" class="precio"></div>
+    <div id="precio2" class="precio"></div>
+    <div id="precio3" class="precio"></div>
+  </div>
+  <script src="scripts/scriptN.js" defer></script>
 </body>
 </html>

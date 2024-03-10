@@ -1,68 +1,70 @@
 @font-face {
-    font-family: "Rockstone";
-    src: url("../fonts/Rockstone-Regular.ttf");
-  }
-  
-  html, body {
-    height: 100%;
-  }
-  
-  body {
-    background-image: url("../img/fondoC.png");
-    background-repeat: no-repeat;
-    overflow: hidden;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Rockstone";
-    src: url("../fonts/Rockstone-Regular.ttf");
-    font-size: 30px;
-    text-align: center;
-    
-  }
+  font-family: "Rockstone";
+  src: url("../fonts/Rockstone-Regular.ttf");
+}
 
-  table{
-    text-align: center;
-    margin: 50px auto;
-    width: 700px;
-    font: 300 30px/1 "Rockstone", sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 1px 1px rgb(0, 0, 0);
-    color: #fff;
-    border-collapse: collapse;
-    padding: 40px;
-    text-shadow: 1px 1px rgb(0, 0, 0);
-    border-radius: 8px;
-   overflow: hidden;
-  }
+html,
+body {
+  height: 100%;
+}
 
-th, td {
+body {
+  background-image: url("../img/fondoC.png");
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rockstone";
+  src: url("../fonts/Rockstone-Regular.ttf");
+  font-size: 30px;
+  text-align: center;
+}
+
+table {
+  text-align: center;
+  margin: 50px auto;
+  width: 700px;
+  font: 300 30px/1 "Rockstone", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  color: #fff;
+  border-collapse: collapse;
+  padding: 40px;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
 }
 
 th {
-    background-color: #FFF300;
+  background-color: #fff300;
 }
-  /*------------------------------------*/
-  
-.boton{
+/*------------------------------------*/
+
+.boton {
   display: flex;
   flex-wrap: wrap;
-  justify-content:right;
+  justify-content: right;
   margin-right: 40px;
 }
 
-.boton .btn{
+.boton .btn {
   padding: 5px;
   font: 300 30px/1 "Rockstone", sans-serif;
-  background: #FFF300;
+  background: #fff300;
   border-radius: 5px;
   color: #fff;
   text-shadow: 1px 1px rgb(0, 0, 0);
 }
+

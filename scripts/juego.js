@@ -2,24 +2,29 @@
 var tiempo = 0;
 var cronometro;
 var running = false;
-startStop();
+
+setTimeout(function () {
+  startStop();
+}, 3000);
 
 function actualizarCronometro() {
   var horas = Math.floor(tiempo / 3600);
   var minutos = Math.floor((tiempo % 3600) / 60);
   var segundos = tiempo % 60;
 
-  document.getElementById('cronometro').innerHTML = 
-    ('0' + horas).slice(-2) + ':' +
-    ('0' + minutos).slice(-2) + ':' +
-    ('0' + segundos).slice(-2);
+  document.getElementById("cronometro").innerHTML =
+    ("0" + horas).slice(-2) +
+    ":" +
+    ("0" + minutos).slice(-2) +
+    ":" +
+    ("0" + segundos).slice(-2);
 }
 
 function startStop() {
   if (running) {
     clearInterval(cronometro);
   } else {
-    cronometro = setInterval(function() {
+    cronometro = setInterval(function () {
       tiempo++;
       actualizarCronometro();
     }, 1000);
@@ -34,23 +39,20 @@ function reset() {
   running = false;
 }
 
-document.getElementById("musica").addEventListener("click", function(){
-    if (audioJuego.paused) {
-        audioJuego.play();
-        document.getElementById("musicIcon").classList.remove("fa-volume-xmark");
-        document.getElementById("musicIcon").classList.add("fa-volume-high");
-        playPauseButton.textContent = "Pause";
-    } else {
-        audioJuego.pause();
-        document.getElementById("musicIcon").classList.remove("fa-volume-high");
-        document.getElementById("musicIcon").classList.add("fa-volume-xmark");
-    }
+document.getElementById("musica").addEventListener("click", function () {
+  if (audioJuego.paused) {
+    audioJuego.play();
+    document.getElementById("musicIcon").classList.remove("fa-volume-xmark");
+    document.getElementById("musicIcon").classList.add("fa-volume-high");
+    playPauseButton.textContent = "Pause";
+  } else {
+    audioJuego.pause();
+    document.getElementById("musicIcon").classList.remove("fa-volume-high");
+    document.getElementById("musicIcon").classList.add("fa-volume-xmark");
+  }
 });
 
 /* ------------ JUEGO --------------- */
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-
 const objetos = [
   "img/objeto1.png",
   "img/objeto2.png",
@@ -73,8 +75,6 @@ const precios = [
   "img/precio8.png",
   "img/precio9.png",
 ];
-
-let puntuacion = 0;
 
 function getRandomItems() {
   const randomPairs = [];
@@ -125,32 +125,54 @@ function mezclarArray(array) {
 }
 
 function dibujarJuego(items) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   // Dibujar los objetos
   items.objetos.forEach((objeto, index) => {
-    const x = 100 + index * 300;
-    const y = 100;
+    let divObjeto = document.getElementById("objeto" + (index + 1));
     const imgobjeto = new Image();
-    imgobjeto.onload = function () {
-        const aspectRatio = imgobjeto.width / imgobjeto.height;
-        const width = 220 * aspectRatio;
-        ctx.drawImage(imgobjeto, x, y, width, 220);
-    };
     imgobjeto.src = objeto;
+    imgobjeto.draggable = false;
+    divObjeto.appendChild(imgobjeto);
   });
 
   // Dibujar los precios
   items.precios.forEach((precio, index) => {
-    const x = 100 + index * 350;
-    const y = 400;
+    let divPrecio = document.getElementById("precio" + (index + 1));
     const imgprecio = new Image();
-    imgprecio.onload = function () {
-      const aspectRatio = imgprecio.width / imgprecio.height;
-      const width = 80 * aspectRatio;
-      ctx.drawImage(imgprecio, x, y, width, 80);
-    };
     imgprecio.src = precio;
+    imgprecio.draggable = true; // Hacer el precio arrastrable
+
+    // Agregar eventos de arrastre al precio
+    imgprecio.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", imgprecio.id);
+    });
+
+    divPrecio.appendChild(imgprecio);
+  });
+
+  // Agregar eventos de soltar a los objetos
+  items.objetos.forEach((objeto, index) => {
+    let divObjeto = document.getElementById("objeto" + (index + 1));
+
+    divObjeto.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
+    divObjeto.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const precioId = e.dataTransfer.getData("text/plain");
+      const precioElement = document.getElementById(precioId);
+    
+      // // Obtener la ruta de la imagen del objeto y precio
+      // const objetoImagePath = items.objetos[index];
+      // const precioImagePath = items.precios[index];
+    
+      // // Verificar si las rutas de las imágenes coinciden
+      // if (objetoImagePath === precioImagePath) {
+      //   alert("¡Acertado!");
+      // } else {
+      //   alert("¡Falló!");
+      // }
+    });
   });
 }
 
