@@ -1,11 +1,16 @@
 @font-face {
     font-family: 'Rockstone-Regular';
-    src: url(../font/Rockstone-Regular.ttf);
+    src: url(../fonts/Rockstone-Regular.ttf);
   }
 
 /* ------------------ JUEGO ---------------------- */
-canvas {
+#gameCanvas {
   border: 1px solid #000;
   display: block;
   margin: 20px auto;
+}
+
+#score {
+  font-family: 'Rockstone-Regular';
+  font-size: 36px;
 }

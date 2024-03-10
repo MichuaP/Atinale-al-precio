@@ -129,8 +129,8 @@ function dibujarJuego(items) {
 
   // Dibujar los objetos
   items.objetos.forEach((objeto, index) => {
-    const x = 100 + index * 300;
-    const y = 100;
+    const x = 100 + index * 370;
+    const y = 10;
     const imgobjeto = new Image();
     imgobjeto.onload = function () {
         const aspectRatio = imgobjeto.width / imgobjeto.height;
@@ -142,9 +142,15 @@ function dibujarJuego(items) {
 
   // Dibujar los precios
   items.precios.forEach((precio, index) => {
-    const x = 100 + index * 350;
+    const x = 100 + index * 370;
     const y = 400;
     const imgprecio = new Image();
+    imgprecio.draggable = true;
+    imgprecio.setAttribute('data-precio', index);
+    imgprecio.addEventListener('drag', drag);
+    imgprecio.addEventListener('dragstart', dragStart);
+    imgprecio.addEventListener('dragover', dragOver);
+    imgprecio.addEventListener('drop', drop);
     imgprecio.onload = function () {
       const aspectRatio = imgprecio.width / imgprecio.height;
       const width = 80 * aspectRatio;
@@ -152,6 +158,38 @@ function dibujarJuego(items) {
     };
     imgprecio.src = precio;
   });
+}
+
+function dragStart(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  event.dataTransfer.setData('text', event.target.getAttribute('data-precio'));
+}
+
+function dragOver(event) {
+  event.preventDefault();
+}
+
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+  event.preventDefault();
+
+  // Verificar si el precio arrastrado es igual al índice del objeto
+  if (droppedPrecio == objetoIndex) {
+    puntuacion += 10; // Acierto, +10 puntos
+  } else {
+    puntuacion -= 5; // Equivocado, -5 puntos
+  }
+
+  actualizarPuntuacion(); // Actualizar la puntuación mostrada
+}
+
+// Function to update the displayed score
+function actualizarPuntuacion() {
+  document.getElementById('scoreValue').innerHTML = puntuacion;
 }
 
 // Cargar todas las imágenes

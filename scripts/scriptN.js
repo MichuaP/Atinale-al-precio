@@ -8,6 +8,10 @@ var audioJuego = new Audio();
 audioJuego.src = 'audio/juego2.mp3';
 audioJuego.loop = true;
 
+document.getElementById('creditos').addEventListener('click', function() {
+  window.location.href = 'creditos.html';
+});
+
 document.addEventListener("keydown", function (event) {
   // Verifica si la tecla presionada es Enter (código 13)
   if (event.key === "Enter") {
