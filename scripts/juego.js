@@ -54,6 +54,14 @@ document.getElementById("musica").addEventListener("click", function () {
 });
 
 /* ------------ JUEGO --------------- */
+// Obtener todos los elementos con la clase "objeto"
+var elementosObjeto = document.querySelectorAll('.objeto');
+
+// Iterar sobre cada elemento y agregar un event listener para el evento "drop"
+elementosObjeto.forEach(function(elemento) {
+    elemento.addEventListener('drop', soltar, false);
+});
+
 const objetos = [
   "img/objeto1.png",
   "img/objeto2.png",
@@ -128,13 +136,27 @@ function mezclarArray(array) {
 
 
 function dibujarJuego(items) {
-  // Dibujar los objetos
-  items.objetos.forEach((objeto, index) => {
-    let divObjeto = document.getElementById("objeto" + (index + 1));
-    const imgobjeto = new Image();
-    imgobjeto.src = objeto;
-    imgobjeto.draggable = false;
-    divObjeto.appendChild(imgobjeto);
+   // Iterar sobre los objetos y dibujarlos en los canvas
+   items.objetos.forEach((objeto, index) => {
+    // Obtener el canvas correspondiente por su ID
+    var canvas = document.getElementById('objeto' + (index + 1));
+    var contexto = canvas.getContext('2d');
+
+    // Crear una nueva imagen
+    const imgObjeto = new Image();
+    imgObjeto.src = objeto;
+    imgObjeto.draggable = false;
+
+    // Cuando la imagen se haya cargado, calcular el tamaño del canvas manteniendo la relación de aspecto
+    imgObjeto.onload = function() {
+      var ratio = imgObjeto.width / imgObjeto.height;
+      var canvasWidth = canvas.width;
+      var canvasHeight = canvasWidth / ratio;
+      canvas.height = canvasHeight;
+
+      // Dibujar la imagen en el canvas manteniendo la relación de aspecto
+      contexto.drawImage(imgObjeto, 0, 0, canvasWidth, canvasHeight);
+    };
   });
 
   // Dibujar los precios
@@ -142,6 +164,7 @@ function dibujarJuego(items) {
     let divPrecio = document.getElementById("precio" + (index + 1));
     const imgprecio = new Image();
     imgprecio.src = precio;
+    imgprecio.id = 'imgPrecio' + (index+1);
 
     // Checar salidas en consola
      console.log(precio);
@@ -152,7 +175,10 @@ function dibujarJuego(items) {
     // Agregar eventos de arrastre al precio
     imgprecio.addEventListener("dragstart", (e) => {
       e.dataTransfer.setData("text/plain", precio); // Se define la data
+      e.dataTransfer.setData("id", imgprecio.getAttribute('id'));
     });
+
+    imgprecio.addEventListener('dragend', finalizado, false);
     divPrecio.appendChild(imgprecio);
   });
 
@@ -192,7 +218,7 @@ function dibujarJuego(items) {
           puntaje =0;
         }else{
           puntaje -=50;
-        }
+        } 
         alert("¡Falló!");
       }
       document.getElementById("scoreValue").textContent = puntaje;
@@ -214,6 +240,34 @@ function loadImages(imagePaths) {
 
   return Promise.all(promises);
 }
+
+function soltar(e) {
+  e.preventDefault();
+  
+  // Obtener el elemento que se soltó
+  var id = e.dataTransfer.getData('id');
+  var elemento = document.getElementById(id);
+  
+  // Obtener el contexto 2D del lienzo sobre el cual se soltó
+  var lienzo = e.target.getContext('2d');
+
+  
+  // Dibujar la imagen  dentro del lienzo
+  var img = new Image();
+  img.src = elemento.src; // Asignar la misma imagen al nuevo objeto de imagen
+  img.onload = function() {
+      //Ancho y alto de la imagen
+      let widthP = 250;
+      let heightP = img.height * widthP / img.width;
+      lienzo.drawImage(img, 25, 0, widthP, heightP);
+  };
+}
+
+function finalizado(e){
+  elemento = e.target;
+  elemento.style.visibility = 'hidden';
+}
+
 
 // Llamar a la función principal después de cargar todas las imágenes
 loadImages([...objetos, ...precios]).then(() => {
