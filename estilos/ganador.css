@@ -1,0 +1,72 @@
+body{
+    background-image: url(../img/fondoF.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+#confeti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: mymove 10s infinite;
+}
+
+#ganador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 180px;
+    left:530px;
+    width: 300px;
+    height: 170px;
+    overflow: hidden !important;
+}
+#ganador img{
+    width: 240px;
+}
+#vitor{
+    position: fixed;
+    bottom: 0;
+}
+#mensaje{
+    background-color: white;
+    border: 3px solid black;
+    padding: 20px 40px 20px 150px;
+    text-align: center;
+    border-radius: 6px;
+    position: fixed;
+    bottom: 15px;
+    left: 180px;
+    box-shadow: 0 0 20px black;
+    font-family: 'Rockstone';
+    font-size: 35px;
+}
+#botones{
+    position: fixed;
+    width: 98%;
+    text-align: right;
+    bottom: 30px;
+}
+button{
+    background-color: yellow;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 6px;
+    box-shadow: 0 0 20px black, inset 0 0 20px rgb(190, 125, 4);
+    font-family: 'Rockstone';
+    font-size: 25px;
+    margin-left: 10px;
+}
+button:hover{
+    background-color: orange;
+    box-shadow: 0 0 20px black, inset 0 0 20px orangered;
+}
+@keyframes mymove {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+}
+@font-face {
+    font-family: 'Rockstone';
+    src: url(../font/Rockstone-Regular.ttf);
+}
