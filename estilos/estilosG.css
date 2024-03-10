@@ -16,7 +16,8 @@
     box-shadow: inset 0 0 20px orange;
 }
 #musica:hover{
-    background-color: rgb(175, 175, 3);
+    background-color: orange;
+    box-shadow: inset 0 0 20px orangered;
 }
 #cronometro{
     font-size: 30px;
