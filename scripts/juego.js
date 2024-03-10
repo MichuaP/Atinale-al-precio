@@ -151,6 +151,67 @@ function dibujarJuego(items) {
       ctx.drawImage(imgprecio, x, y, width, 80);
     };
     imgprecio.src = precio;
+    imgprecio.draggable = true; // Hacer el precio arrastrable
+
+    // Agregar eventos de arrastre al precio
+    imgprecio.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", imgprecio.id);
+    });
+
+    divPrecio.appendChild(imgprecio);
+  });
+
+  // Agregar eventos de soltar a los objetos
+  items.objetos.forEach((objeto, index) => {
+    let divObjeto = document.getElementById("objeto" + (index + 1));
+
+    divObjeto.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
+    // divObjeto.addEventListener("drop", (e) => {
+    //   e.preventDefault();
+    //   const precioId = e.dataTransfer.getData("text/plain");
+    //   const precioElement = document.getElementById(precioId);
+    
+    //   // // Obtener la ruta de la imagen del objeto y precio
+    //    const objetoImagePath = items.objetos[index];
+    //    const precioImagePath = items.precios[index];
+    
+    //    // Verificar si las rutas de las imágenes coinciden
+    //    if (objetoImagePath === precioImagePath) {
+    //      alert("¡Acertado!");
+    //    } else {
+    //      alert("¡Falló!");
+    //    }
+    // });
+    divObjeto.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const precioId = e.dataTransfer.getData("text/plain");
+      const precioElement = document.getElementById(precioId);
+    
+      // Obtener el índice del precio arrastrado
+      const index = parseInt(precioId.replace("precio", "")) - 1;
+    
+      // Obtener la ruta de la imagen del objeto y precio
+      const objetoImagePath = objetos[index];
+      const precioImagePath = precios[index];
+    
+      // Verificar si las rutas de las imágenes coinciden
+      if (objetoImagePath === precioImagePath) {
+        
+        // Reproducir la música de acertar
+
+        // Alerta de acertaste
+        alert("¡Acertaste!");
+
+      } else {
+        // Reproducir la música de error
+
+        //Alerta de fallaste
+        alert("¡Fallaste!");
+      }
+    });
   });
 }
 
