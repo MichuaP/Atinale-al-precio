@@ -2,6 +2,7 @@
 var tiempo = 0;
 var cronometro;
 var running = false;
+var puntaje = 0;
 
 setTimeout(function () {
   startStop();
@@ -124,6 +125,8 @@ function mezclarArray(array) {
   return array;
 }
 
+
+
 function dibujarJuego(items) {
   // Dibujar los objetos
   items.objetos.forEach((objeto, index) => {
@@ -139,13 +142,17 @@ function dibujarJuego(items) {
     let divPrecio = document.getElementById("precio" + (index + 1));
     const imgprecio = new Image();
     imgprecio.src = precio;
+
+    // Checar salidas en consola
+     console.log(precio);
+    //  console.log(imgprecio.src);
+
     imgprecio.draggable = true; // Hacer el precio arrastrable
 
     // Agregar eventos de arrastre al precio
     imgprecio.addEventListener("dragstart", (e) => {
-      e.dataTransfer.setData("text/plain", imgprecio.id);
+      e.dataTransfer.setData("text/plain", precio); // Se define la data
     });
-
     divPrecio.appendChild(imgprecio);
   });
 
@@ -159,20 +166,38 @@ function dibujarJuego(items) {
 
     divObjeto.addEventListener("drop", (e) => {
       e.preventDefault();
-      const precioId = e.dataTransfer.getData("text/plain");
-      const precioElement = document.getElementById(precioId);
+
+      // Obtener la data del precio arrastrado (la ruta que se mandó en dragStart)
+      const precioImagePath = e.dataTransfer.getData("text/plain");
     
-      // // Obtener la ruta de la imagen del objeto y precio
-      // const objetoImagePath = items.objetos[index];
-      // const precioImagePath = items.precios[index];
-    
-      // // Verificar si las rutas de las imágenes coinciden
-      // if (objetoImagePath === precioImagePath) {
-      //   alert("¡Acertado!");
-      // } else {
-      //   alert("¡Falló!");
-      // }
+      // Obtener la ruta de la imagen del objeto
+      const objetoImagePath = items.objetos[index];
+  
+      // Verificar si las rutas de las imágenes coinciden (el núnemero)
+      if (objetoImagePath[10] === precioImagePath[10]) {
+      //Checar salidas en consola
+      //  console.log(objetoImagePath);
+      //  console.log(precioImagePath);
+      //  console.log(objetoImagePath[10]);
+      //  console.log(precioImagePath[10]);
+        puntaje +=100;
+        alert("¡Acertado!");
+      } else {
+      //Checar salidas en consola
+      //  console.log(objetoImagePath);
+      //  console.log(precioImagePath);
+      //  console.log(objetoImagePath[10]);
+      //  console.log(precioImagePath[10]);
+        if(puntaje<100){
+          puntaje =0;
+        }else{
+          puntaje -=50;
+        }
+        alert("¡Falló!");
+      }
+      document.getElementById("scoreValue").textContent = puntaje;
     });
+
   });
 }
 
