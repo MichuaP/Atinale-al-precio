@@ -84,6 +84,7 @@ body {
 }
 
 .btnJugar .btn2{
+  cursor: pointer;
   text-align: center;
   padding: 15px;
   margin-top: 40px;
