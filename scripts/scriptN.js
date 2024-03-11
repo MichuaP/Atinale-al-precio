@@ -1,3 +1,7 @@
+function irInicio() {
+  window.location.href = "index.html";
+}
+
 // Crea un elemento de audio
 var audioAlias = new Audio();
 audioAlias.src = "audio/alias.mp3";

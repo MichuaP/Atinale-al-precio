@@ -77,6 +77,16 @@ body {
   cursor: pointer;
 }
 
+.container_Inicio .btn-salir, .btn-creditos:hover{
+  background-color: orange;
+  box-shadow: inset 0 0 20px orangered;
+}
+
+.container_Inicio .btn-puntuaciones:hover{
+  background-color: orange;
+  box-shadow: inset 0 0 20px orangered;
+}
+
 #salir {
   position: fixed;
   top: 20px;
@@ -91,4 +101,9 @@ body {
   color: #fff;
   text-shadow: 1px 1px rgb(0, 0, 0);
   cursor: pointer;
+}
+
+#salir:hover{
+  background-color: orange;
+  box-shadow: inset 0 0 20px orangered;
 }
