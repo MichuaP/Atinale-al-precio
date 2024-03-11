@@ -3,6 +3,11 @@
     src: url(../fonts/alarm.ttf);
 }
 
+@font-face {
+    font-family: "Rockstone";
+    src: url("../fonts/Rockstone-Regular.ttf");
+}
+
 #top{
     display: flex;
     justify-content: space-between;

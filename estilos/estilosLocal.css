@@ -3,6 +3,18 @@
   src: url("../fonts/Rockstone-Regular.ttf");
 }
 
+.containerPunt::-webkit-scrollbar {
+  width: 12px;
+}
+
+.containerPunt::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+.containerPunt::-webkit-scrollbar-thumb {
+  background-color: rgb(204, 167, 0);
+}
+
 html,
 body {
   height: 100%;
