@@ -44,3 +44,34 @@ body {
   text-shadow: 1px 1px rgb(0, 0, 0);
   cursor: pointer;
 }
+.container_Inicio .btn-puntuaciones {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  text-align: center;
+  padding: 10px;
+  font: 300 30px/1 'Rockstone-Regular';
+  font-size: 50px;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.container_Inicio .btn-salir {
+  position: fixed;
+  top: 620px;
+  right: 20px;
+  z-index: 2;
+  text-align: center;
+  padding: 10px;
+  font: 300 30px/1 'Rockstone-Regular';
+  font-size: 50px;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  cursor: pointer;
+}

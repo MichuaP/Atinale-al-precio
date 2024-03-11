@@ -15,6 +15,9 @@ audioIntro.loop = false;
 document.getElementById("creditos").addEventListener("click", function () {
   window.location.href = "creditos.html";
 });
+document.getElementById("puntuaciones").addEventListener("click", function () {
+  window.location.href = "puntuaciones.html";
+});
 
 document.addEventListener("keydown", function (event) {
   // Verifica si la tecla presionada es Enter (código 13)

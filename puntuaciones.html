@@ -32,9 +32,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Obtener datos del localStorage
-            const alias = JSON.parse(localStorage.getItem('alias')) || [];
+            // const alias = JSON.parse(localStorage.getItem('alias')) || [];
             const puntuaciones = JSON.parse(localStorage.getItem('puntuaciones')) || [];
-            const tiempo = JSON.parse(localStorage.getItem('tiempo')) || [];
+            // const tiempo = JSON.parse(localStorage.getItem('tiempo')) || [];
             // Ordenar puntuaciones de menor a mayor
             puntuaciones.sort((a, b) => a.puntuacion - b.puntuacion);
 
@@ -45,7 +45,7 @@
             // Agregar filas a la tabla
             puntuaciones.forEach(puntuacion => {
                 const fila = document.createElement('tr');
-                fila.innerHTML = `<td>${puntuacion.alias}</td><td>${puntuacion.puntuaciones}</td><td>${puntuacion.tiempo}</td>`;
+                fila.innerHTML = `<td>${puntuacion.alias}</td><td>${puntuacion.puntos}</td><td>${puntuacion.tiempo}</td>`;
                 tbody.appendChild(fila);
             });
         });

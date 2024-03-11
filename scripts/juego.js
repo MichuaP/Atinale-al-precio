@@ -304,7 +304,7 @@ if(puntuaciones==null){
 }else{
     // Lo recorremos
     for(var i in puntuaciones){
-        var partida = JSON.parse(puntuaciones[i]);
+        var partida = puntuaciones[i];
         // Si existe el alias
         if (nombreJ == partida.alias){
             console.log(partida.alias+ " si existe");
@@ -336,7 +336,7 @@ document.getElementById("name").innerHTML = localStorage.alias;
    var partidaEncontrada = false;
    //recorremos el array para comparar tiempos
    for(var i in puntuaciones){
-     partida = JSON.parse(puntuaciones[i]);
+     partida = puntuaciones[i];
      if (nombreJ == partida.alias){ //si existe el nombre
        console.log(partida.alias+ " si existe el nombre");
 
@@ -359,7 +359,7 @@ document.getElementById("name").innerHTML = localStorage.alias;
           puntos: puntaje,
           tiempo: tiempo
       };
-      puntuaciones.push(JSON.stringify(nuevaPartida));
+      puntuaciones.push(nuevaPartida);
   }
    // Actualizar el local storage
   localStorage.setItem("puntuaciones", JSON.stringify(puntuaciones));
