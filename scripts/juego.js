@@ -324,6 +324,7 @@ function nivel2(){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         });
     });
+    document.getElementById('nivel').innerText = "Nivel 2 - ";
     const iniciar2 = getRandomItems();
     dibujarJuego(iniciar2); // Iniciar el juego
   },3000);

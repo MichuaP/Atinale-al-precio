@@ -5,7 +5,7 @@
 
 #top{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 #musica{
@@ -31,4 +31,46 @@
 
 #tiempo i{
     padding-right: 10px;
+
+}
+body{
+    background-image: url(../img/fondoJuego2.png);
+    background-size: cover;
+    background-color: rgb(9, 9, 134);
+    padding: 20px 100px;
+}
+#contenidoJuego{
+    background-color: rgb(9, 9, 134);
+    border: 15px solid rgb(235, 87, 235);
+    box-shadow: 0 0 20px rgb(241, 13, 241), inset 0 0 20px rgb(241, 13, 241);
+    margin-top: 40px;
+    border-radius: 15px;
+
+}
+
+#tiempo{
+    border: 5px solid black;
+    padding: 15px;
+    box-shadow: 0 0 20px rgb(5, 5, 65);
+    color: yellow;
+    background-color: rgb(9, 9, 134);
+}
+
+
+#nivel{
+    font-family: 'Rockstone';
+    font-size: 45px;
+    padding-right: 10px;
+}
+
+#div1{
+    display: flex;
+    color: white;
+    font-family: 'Rockstone';
+}
+
+#top > div{
+    width: 33%;
+    display: flex;
+    justify-content: center;
 }

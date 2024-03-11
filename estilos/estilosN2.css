@@ -5,7 +5,6 @@
 
 /* ------------------ JUEGO ---------------------- */
 #gameCanvas {
-  border: 1px solid #000;
   height: 250px;
   width: 1200px;
   margin: 20px auto;
@@ -14,7 +13,6 @@
   padding: 25px;
 }
 #objetosPrecio {
-  border: 1px solid #000;
   height: 100px;
   width: 1200px;
   margin: 20px auto;
@@ -24,7 +22,6 @@
 }
 
 .precio{
-  border: 1px solid black;
   height: 100px;
   width: 250px;
   display: flex;
@@ -39,7 +36,6 @@
 
 
 .objeto{
-  border: 1px solid black;
   height: 250px;
   width: 250px;
   display: flex;
