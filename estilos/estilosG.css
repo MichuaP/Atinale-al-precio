@@ -58,7 +58,7 @@ body{
 
 #nivel{
     font-family: 'Rockstone';
-    font-size: 45px;
+    font-size: 36px;
     padding-right: 10px;
 }
 
@@ -72,10 +72,15 @@ body{
     width: 33%;
     display: flex;
     justify-content: center;
-}
+    align-items: center;
 }
 
 #name, #bestTime, #containerBS{
     font-family: 'Rockstone-Regular';
     font-size: 36px;
+    color: white;
+}
+
+#name, #bestTime{
+    padding-right: 15px;
 }
