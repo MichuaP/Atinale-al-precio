@@ -1,7 +1,13 @@
+@font-face {
+    font-family: "Rockstone";
+    src: url("../fonts/Rockstone-Regular.ttf");
+}
+
 body{
     background-image: url(../img/fondoF.jpg);
     background-size: cover;
     height: 100vh;
+    overflow-x: hidden;
 }
 #confeti {
     position: fixed;
@@ -48,19 +54,39 @@ body{
     text-align: right;
     bottom: 30px;
 }
-button{
-    background-color: yellow;
+
+#salir {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    text-align: center;
     padding: 10px;
-    border: 3px solid black;
-    border-radius: 6px;
-    box-shadow: 0 0 20px black, inset 0 0 20px rgb(190, 125, 4);
-    font-family: 'Rockstone';
-    font-size: 25px;
-    margin-left: 10px;
-}
+    font: 300 30px/1 'Rockstone';
+    font-size: 30px;
+    background: #FFF300;
+    border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    cursor: pointer;
+  }
+
+button {
+    z-index: 2;
+    text-align: center;
+    padding: 10px;
+    font: 300 30px/1 'Rockstone';
+    font-size: 40px;
+    background: #FFF300;
+    border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    cursor: pointer;
+  }
+
 button:hover{
     background-color: orange;
-    box-shadow: 0 0 20px black, inset 0 0 20px orangered;
+    box-shadow: inset 0 0 20px orangered;
 }
 
 #salir {
@@ -70,7 +96,7 @@ button:hover{
     z-index: 2;
     text-align: center;
     padding: 10px;
-    font: 300 30px/1 'Rockstone-Regular';
+    font: 300 30px/1 'Rockstone';
     font-size: 30px;
     background: #FFF300;
     border-radius: 5px;
@@ -81,8 +107,4 @@ button:hover{
 @keyframes mymove {
     from {opacity: 100%;}
     to {opacity: 0%;}
-}
-@font-face {
-    font-family: 'Rockstone';
-    src: url(../font/Rockstone-Regular.ttf);
 }

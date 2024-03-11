@@ -32,7 +32,7 @@ body {
   text-shadow: 2px 2px rgb(0, 0, 0);
   color: #fff;
   display: inline;
-  animation: 60s credits linear infinite alternate;
+  animation: 30s credits linear infinite alternate;
 }
 
 .movie {
