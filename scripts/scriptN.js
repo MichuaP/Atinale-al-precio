@@ -45,6 +45,10 @@ document.addEventListener("keydown", function (event) {
 });
 
 function irJuego() {
+  let alias = document.getElementById("alias").value;
+  alias = alias.toUpperCase(); //lo convierte en mayúsculas
+  // console.log("alias:"+alias);
+
   localStorage.alias = document.getElementById("alias").value;
   var links = document.getElementsByTagName("link");
   for (var i = links.length - 1; i >= 0; i--) {
