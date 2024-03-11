@@ -39,7 +39,7 @@ body{
     bottom: 15px;
     left: 180px;
     box-shadow: 0 0 20px black;
-    font-family: 'Rockstone';
+    font-family: 'Rockstone-Regular';
     font-size: 35px;
 }
 #botones{
@@ -54,7 +54,7 @@ button{
     border: 3px solid black;
     border-radius: 6px;
     box-shadow: 0 0 20px black, inset 0 0 20px rgb(190, 125, 4);
-    font-family: 'Rockstone';
+    font-family: 'Rockstone-Regular';
     font-size: 25px;
     margin-left: 10px;
 }
@@ -83,6 +83,6 @@ button:hover{
     to {opacity: 0%;}
 }
 @font-face {
-    font-family: 'Rockstone';
+    font-family: 'Rockstone-Regular';
     src: url(../font/Rockstone-Regular.ttf);
 }
