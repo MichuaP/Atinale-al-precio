@@ -380,6 +380,7 @@ document.getElementById("name").innerHTML = localStorage.alias;
 
         if(tiempo<partida.tiempo){
             partida.tiempo = tiempo;
+            localStorage.mejorTiempo = tiempo;
             console.log("El tiempo es mejor");
             break;
         }else{
