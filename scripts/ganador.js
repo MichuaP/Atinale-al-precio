@@ -4,7 +4,7 @@ setTimeout(function(){
 },7000);
 
 var audioJuego = new Audio();
-    audioJuego.src = 'audio/juego.mp3';
+    audioJuego.src = 'audio/juego2.mp3';
     audioJuego.loop = true;
 
 
