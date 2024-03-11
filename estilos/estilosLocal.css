@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  background-image: url("../img/fondoC.png");
+  background-image: url("../img/fondoC.jpeg");
   background-repeat: no-repeat;
   overflow: hidden;
   background-attachment: fixed;
@@ -72,3 +72,11 @@ th {
   cursor: pointer;
 }
 
+.containerPunt {
+  display: flex;
+  align-items: center;
+  border: none;
+  margin-top: 180px;
+  max-height: 300px;
+  overflow-y: auto;
+}
