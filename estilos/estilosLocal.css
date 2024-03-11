@@ -50,12 +50,16 @@ table {
   text-shadow: 1px 1px rgb(0, 0, 0);
   border-radius: 8px;
 }
+table #titul{
+  padding-bottom: 50px;
+}
 
 th,
 td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
+  text-shadow: 1px 1px 0 rgb(0, 0, 0), 2px 2px 0 rgb(0, 0, 0);
 }
 
 #salir:hover{
@@ -88,7 +92,17 @@ th {
   display: flex;
   align-items: center;
   border: none;
-  margin-top: 180px;
+  margin-top: 130px;
   max-height: 300px;
   overflow-y: auto;
+}
+
+#titul{
+  position: fixed;
+  top: 175px;
+  left: 44%;
+  color: #ddd;
+  font-size: 80px;
+  text-shadow: 2px 2px 0 rgb(0, 0, 0), 4px 4px 0 rgb(0, 0, 0);
+
 }
