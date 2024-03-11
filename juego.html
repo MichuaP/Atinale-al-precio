@@ -1,57 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="estilos/estilosN2.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/d60c975bf8.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="estilos/estilosN2.css" />
     <script src="scripts/juego.js"></script>
     <title>Atínale al Precio</title>
-    <link rel="stylesheet" href="estilos/estilosG.css">
-</head>
-<body>
-  <div id="overlay">
-    <div class="pantalla">
-        <p id="overlayTexto" class="animate__animated animate__zoomIn animate__fast">A jugar!</p>
-    </div>
-  </div>
-  <div id="top">
-    <div>
-      <div id="div1">
-        <div id="nivel">Nivel 1 - </div>
-        <div id="score">Puntaje: <span id="scoreValue">0</span></div>
+    <link rel="stylesheet" href="estilos/estilosG.css" />
+  </head>
+  <body>
+    <div id="overlay">
+      <div class="pantalla">
+        <p
+          id="overlayTexto"
+          class="animate__animated animate__zoomIn animate__fast"
+        >
+          A jugar!
+        </p>
       </div>
     </div>
-    
-    <div>
-      <div id="tiempo">
-        <i class="fa-regular fa-2xl fa-clock" ></i>
-        <div id="cronometro">
-          00:00:00
+    <div id="top">
+      <button id="salir" onclick="irInicio()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div>
+        <div id="div1">
+          <div id="nivel">Nivel 1 -</div>
+          <div id="score">Puntaje: <span id="scoreValue">0</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div id="tiempo">
+          <i class="fa-regular fa-2xl fa-clock"></i>
+          <div id="cronometro">00:00:00</div>
+        </div>
+      </div>
+      <div>
+        <div id="name"></div>
+        <div id="containerBS">Mejor tiempo: <span id="bestTime">0</span></div>
+        <div id="musica">
+          <i class="fa-solid fa-lg fa-volume-high" id="musicIcon"></i>
         </div>
       </div>
     </div>
-    <div>
-      <div id="name"></div>
-      <div id="containerBS">Mejor tiempo: <span id="bestTime">0</span></div>
-      <div id="musica">
-        <i class="fa-solid fa-lg fa-volume-high" id="musicIcon"></i>
+    <div id="contenidoJuego">
+      <div id="gameCanvas">
+        <canvas id="objeto1" class="objeto"></canvas>
+        <canvas id="objeto2" class="objeto"></canvas>
+        <canvas id="objeto3" class="objeto"></canvas>
+      </div>
+      <div id="objetosPrecio">
+        <div id="precio1" class="precio"></div>
+        <div id="precio2" class="precio"></div>
+        <div id="precio3" class="precio"></div>
       </div>
     </div>
-  </div>
-  <div id="contenidoJuego">
-    <div id="gameCanvas">
-      <canvas id="objeto1" class="objeto"></canvas>
-      <canvas id="objeto2" class="objeto"></canvas>
-      <canvas id="objeto3" class="objeto"></canvas>
-    </div>
-    <div id="objetosPrecio">
-      <div id="precio1" class="precio"></div>
-      <div id="precio2" class="precio"></div>
-      <div id="precio3" class="precio"></div>
-    </div>
-  </div>
-  <script src="scripts/scriptN.js" defer></script>
-</body>
+    <script>
+      function irInicio() {
+        window.location.href = "index.html";
+      }
+    </script>
+    <script src="scripts/scriptN.js" defer></script>
+  </body>
 </html>

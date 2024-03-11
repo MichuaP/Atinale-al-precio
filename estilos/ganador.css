@@ -62,6 +62,22 @@ button:hover{
     background-color: orange;
     box-shadow: 0 0 20px black, inset 0 0 20px orangered;
 }
+
+#salir {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    text-align: center;
+    padding: 10px;
+    font: 300 30px/1 'Rockstone-Regular';
+    font-size: 30px;
+    background: #FFF300;
+    border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+    cursor: pointer;
+  }
 @keyframes mymove {
     from {opacity: 100%;}
     to {opacity: 0%;}

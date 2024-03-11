@@ -74,3 +74,19 @@
   font-family: 'Rockstone-Regular';
   text-shadow: 2px 2px 0 #ceba08, 4px 4px 0 #ceba08;
 }
+
+#salir {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  text-align: center;
+  padding: 10px;
+  font: 300 30px/1 'Rockstone-Regular';
+  font-size: 30px;
+  background: #FFF300;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px rgb(0, 0, 0);
+  cursor: pointer;
+}

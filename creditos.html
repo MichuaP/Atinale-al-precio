@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
   <title>Document</title>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="estilos/estilosP.css" />
@@ -45,9 +45,9 @@
       <div class="name">10 de Marzo del 2024</div>
     </div>
   </div>
-  <div class="boton">
-    <button class="btn" onclick="irInicio()">Regresar</button>
-  </div>
+  <button id="salir" onclick="irInicio()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
   <script>
     function irInicio(){
       window.location.href = "index.html";

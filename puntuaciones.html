@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adivina el Precio</title>
     <link rel="stylesheet" href="estilos/estilosLocal.css">
+    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -21,9 +23,9 @@
             <!-- Aquí se agregarán las filas dinámicamente -->
         </tbody>
     </table>
-    <div class="boton">
-        <button class="btn" onclick="irInicio()">Regresar</button>
-      </div>
+    <button id="salir" onclick="irInicio()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
       <script>
         function irInicio(){
           window.location.href = "index.html";

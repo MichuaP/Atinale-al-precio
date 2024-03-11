@@ -11,11 +11,19 @@
 </head>
 <body>
     <div class="container_Inicio">
+        <button id="salir" onclick="salir()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>    
         <button id="creditos" class="btn-creditos">CREDITOS</button>
         <button id="puntuaciones" class="btn-puntuaciones">PUNTUACIONES</button>
         <img src="img/logo.png" alt="" class="animate__animated animate__tada animate__slower animate__infinite">
         <p class="animate__animated animate__pulse animate__infinite">Pulsa ENTER para continuar</p>
     </div>
+    <script>
+        function salir(){
+            window.close();
+        }
+    </script>
     <script src="scripts/scriptN.js"></script>
 </body>
 </html>

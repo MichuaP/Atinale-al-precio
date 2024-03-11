@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/d60c975bf8.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/d60c975bf8.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="scripts/ganador.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Atínale al precio</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="estilos/ganador.css">
-</head>
-<body>
-    
-    <div id="ganador" class="animate__animated animate__heartBeat animate_slow animate__infinite">
-        <img src="img/ganador.png" alt="">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="estilos/ganador.css" />
+  </head>
+  <body>
+    <div
+      id="ganador"
+      class="animate__animated animate__heartBeat animate_slow animate__infinite"
+    >
+      <img src="img/ganador.png" alt="" />
     </div>
-    <div id="mensaje" class="animate__animated animate__fadeInLeft">Increible! Eres un campeon indiscutible</div>
-    <img src="img/vitor.png" alt="" id="vitor">
-    <img src="img/confetti-49.gif" alt="" id="confeti">
+    <div id="mensaje" class="animate__animated animate__fadeInLeft">
+      Increible! Eres un campeon indiscutible
+    </div>
+    <img src="img/vitor.png" alt="" id="vitor" />
+    <img src="img/confetti-49.gif" alt="" id="confeti" />
     <div id="botones">
-        <button onclick="irJuego()"><i class="fa-solid fa-lg fa-arrow-rotate-right"></i> Jugar de nuevo </button>
-        <button onclick="verPuntos()"><i class="fa-solid fa-lg fa-trophy"></i> Ver puntaje</button>
+      <button onclick="irJuego()">
+        <i class="fa-solid fa-lg fa-arrow-rotate-right"></i> Jugar de nuevo
+      </button>
+      <button onclick="verPuntos()">
+        <i class="fa-solid fa-lg fa-trophy"></i> Ver puntaje
+      </button>
     </div>
-</body>
+    <button id="salir" onclick="irInicio()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <script>
+      function irInicio() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
 </html>
