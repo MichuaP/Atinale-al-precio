@@ -300,24 +300,31 @@ loadImages([...objetos, ...precios]).then(() => {
 });
 
 function nivel2(){
-  
-  // Obtener todos los elementos con la clase "precio"
-  let elementosPrecio = document.querySelectorAll('.precio');
+  const overlayTexto = document.getElementById("overlayTexto");
+  overlayTexto.textContent = "Pasaste al siguiente nivel";
 
-  // Iterar sobre cada elemento y eliminar todos sus hijos
-  elementosPrecio.forEach(elemento => {
-      while (elemento.firstChild) {
-          elemento.removeChild(elemento.firstChild);
-      }
-      // Obtener todos los elementos con la clase "objeto"
-      let canvasList = document.querySelectorAll('.objeto');
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "flex";
+  setTimeout(function(){
+    overlay.style.display = "none";
+    // Obtener todos los elementos con la clase "precio"
+    let elementosPrecio = document.querySelectorAll('.precio');
 
-      // Iterar sobre cada canvas y limpiarlo
-      canvasList.forEach(canvas => {
-          let ctx = canvas.getContext('2d');
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-      });
-  });
-  const iniciar2 = getRandomItems();
-  dibujarJuego(iniciar2); // Iniciar el juego
+    // Iterar sobre cada elemento y eliminar todos sus hijos
+    elementosPrecio.forEach(elemento => {
+        while (elemento.firstChild) {
+            elemento.removeChild(elemento.firstChild);
+        }
+        // Obtener todos los elementos con la clase "objeto"
+        let canvasList = document.querySelectorAll('.objeto');
+
+        // Iterar sobre cada canvas y limpiarlo
+        canvasList.forEach(canvas => {
+            let ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+    });
+    const iniciar2 = getRandomItems();
+    dibujarJuego(iniciar2); // Iniciar el juego
+  },3000);
 }
