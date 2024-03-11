@@ -58,7 +58,7 @@ document.getElementById("musica").addEventListener("click", function () {
 /* ------------ JUEGO --------------- */
 // Obtener todos los elementos con la clase "objeto"
 var elementosObjeto = document.querySelectorAll('.objeto');
-var esconder = true;
+var esconder;
 var audioObjeto = new Audio();
 var audioNombre = new Audio();
 var numObj = 0;
@@ -89,10 +89,19 @@ const precios = [
   "img/precio8.png",
   "img/precio9.png",
 ];
-
+const nombresObj = [
+  "Licuadora",
+  "Pantalla",
+  "Carro",
+  "Celular",
+  "Play Station 5",
+  "Rolex",
+  "Audifonos",
+  "Equipo de sonido",
+  "Casa"
+];
 function getRandomItems() {
   const randomPairs = [];
-
   // Crear copias de los arrays originales para evitar modificar los originales
   // const dispobjetos = [...objetos];
   // const dispprecios = [...precios];
@@ -202,13 +211,13 @@ function dibujarJuego(items) {
       const precioImagePath = e.dataTransfer.getData("text/plain");
     
       // Obtener la ruta de la imagen del objeto
-      const objetoImagePath = items.objetos[index];
-      console.log(objetoImagePath[10]);
-      console.log(precioImagePath[10])
+       const objetoImagePath = items.objetos[index];
+    //   console.log(objetoImagePath[10]);
+    //   console.log(precioImagePath[10])
       // Verificar si las rutas de las imágenes coinciden (el núnemero)
       if (objetoImagePath[10] === precioImagePath[10]) {
         puntaje +=100;
-        // alert("¡Acertado!");
+        // alert("¡Acertado!");        
         //audio
         audioObjeto.src = "audio/audio" + objetoImagePath[10] + ".mp3";
         audioNombre.src = "audio/nombre" + objetoImagePath[10] + ".mp3";
@@ -230,7 +239,16 @@ function dibujarJuego(items) {
             let widthP = 250;
             let heightP = img.height * widthP / img.width;
             lienzo.drawImage(img, 25, 0, widthP, heightP);
+
+			//nombre
+			console.log(objetoImagePath[10]);
+			console.log(parseInt(objetoImagePath[10])-1);
+			console.log(nombresObj[parseInt(objetoImagePath[10])-1]);
+			console.log(nombresObj);
+			
+			centrar(nombresObj[parseInt(objetoImagePath[10])-1],lienzo,e.target);
         };
+        
         esconder = true;
         numObj++;
         if(numObj==3){//siguiente nivel
@@ -413,4 +431,21 @@ function nivel2(){
     const iniciar2 = getRandomItems();
     dibujarJuego(iniciar2); // Iniciar el juego
   },3000);
+}
+
+function centrar(texto, lienzo, element){
+	
+  if(texto == "Play Station 5" || texto== "Equipo de sonido"){
+	lienzo.font = '60px Rockstone';
+  }else{
+	lienzo.font = '80px Rockstone';
+  }
+  
+  let textWidth = lienzo.measureText(texto).width;
+  let x = (element.width - textWidth) / 2;
+  lienzo.fillStyle = "#FF60C6";
+  lienzo.fillText(texto, x, element.height);
+  lienzo.strokeStyle = "#B01C5D"; // Color del contorno
+  lienzo.lineWidth = 3; // Grosor del contorno
+  lienzo.strokeText(texto, x, element.height);
 }
