@@ -32,3 +32,8 @@
 #tiempo i{
     padding-right: 10px;
 }
+
+#name, #bestTime, #containerBS{
+    font-family: 'Rockstone-Regular';
+    font-size: 36px;
+}
