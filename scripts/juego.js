@@ -3,10 +3,96 @@ var tiempo = 0;
 var cronometro;
 var running = false;
 var puntaje = 0;
+var mejorTiempo = 0;
+var nombreJ ="";
 
 setTimeout(function () {
   startStop();
 }, 3000);
+
+// Se saca el alias de local
+nombreJ = localStorage.alias;
+console.log("Name: "+nombreJ);
+
+// Obtenemos el array de partidas pasadas
+var puntuaciones=localStorage.getItem("puntuaciones");
+
+// Se convierte el array
+puntuaciones=JSON.parse(puntuaciones);
+
+// Si no existe se crea
+if(puntuaciones==null){
+    puntuaciones=[];
+    localStorage.puntos = 0;
+    localStorage.tiempo = 0;
+}else{
+    // Lo recorremos
+    for(var i in puntuaciones){
+        var partida = JSON.parse(puntuaciones[i]);
+        // Si existe el alias
+        if (nombreJ == partida.alias){
+            console.log(partida.alias+ " si existe");
+            mejorTiempo = partida.tiempo;
+            // Se ingresa la mejor puntuación al juego
+            document.getElementById("bestTime").innerHTML = mejorTiempo;
+        }else{
+            // No existe el alias en el array
+            mejorTiempo = 0;
+            document.getElementById("bestTime").innerHTML = mejorTiempo;
+            puntos = 0;
+            localStorage.puntos = puntos;
+            localStorage.tiempo =0;
+            console.log("no existe");
+        }
+    }
+}
+
+// Se ingresa el nombre al juego
+document.getElementById("name").innerHTML = localStorage.alias;
+
+// Funcion para agregar una partida al terminar el juego al localStorage
+ function agregarPartida(){
+  localStorage.tiempo = tiempo;
+  localStorage.puntos = puntaje;
+  localStorage.alias = nombreJ;
+   console.log("entra a agregar partida");
+   var partida;
+   var partidaEncontrada = false;
+   //recorremos el array para comparar tiempos
+   for(var i in puntuaciones){
+     partida = JSON.parse(puntuaciones[i]);
+     if (nombreJ == partida.alias){ //si existe el nombre
+       console.log(partida.alias+ " si existe el nombre");
+
+       partidaEncontrada = true;
+
+       if(partida.mejorTiempo<tiempo){
+         partida.mejorTiempo = tiempo;
+         console.log("El tiempo es mejor");
+       }else{
+         console.log("El tiempo es peor");
+       }
+       break;
+     }
+  } 
+  // Si el nombre del jugador no existe en ninguna partida, crear una nueva partida
+  if (!partidaEncontrada) {
+      console.log("No existe el registro");
+      var nuevaPartida = {
+          alias: nombreJ,
+          puntos: puntaje,
+          tiempo: tiempo
+      };
+      puntuaciones.push(JSON.stringify(nuevaPartida));
+  }
+   // Actualizar el local storage
+  localStorage.setItem("puntuaciones", JSON.stringify(puntuaciones));
+  console.log("El registro se ha ingresado");
+  console.log("El registro se ha ingresado");
+
+    
+}
+
 
 function actualizarCronometro() {
   var horas = Math.floor(tiempo / 3600);
@@ -234,6 +320,7 @@ function dibujarJuego(items) {
         if(numObj==3){//siguiente nivel
           setTimeout(nivel2,10000);
         }else if(numObj == 6){//fin del juego
+          agregarPartida();
           setTimeout(function(){
             window.location.href = "felicitaciones.html";
           },10000);
