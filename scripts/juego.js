@@ -56,11 +56,14 @@ document.getElementById("musica").addEventListener("click", function () {
 /* ------------ JUEGO --------------- */
 // Obtener todos los elementos con la clase "objeto"
 var elementosObjeto = document.querySelectorAll('.objeto');
-
+var esconder = true;
+var audioObjeto = new Audio();
+var audioNombre = new Audio();
+var numObj = 0;
 // Iterar sobre cada elemento y agregar un event listener para el evento "drop"
-elementosObjeto.forEach(function(elemento) {
-    elemento.addEventListener('drop', soltar, false);
-});
+// elementosObjeto.forEach(function(elemento) {
+//     elemento.addEventListener('drop', soltar, false);
+// });
 
 const objetos = [
   "img/objeto1.png",
@@ -89,26 +92,26 @@ function getRandomItems() {
   const randomPairs = [];
 
   // Crear copias de los arrays originales para evitar modificar los originales
-  const dispobjetos = [...objetos];
-  const dispprecios = [...precios];
+  // const dispobjetos = [...objetos];
+  // const dispprecios = [...precios];
 
   // Obtener 3 pares únicos de objetos y precios
   for (let i = 0; i < 3; i++) {
     // Verificar si hay elementos disponibles
-    if (dispobjetos.length === 0) {
+    if (objetos.length === 0) {
       break; // No hay más elementos disponibles, salir del bucle
     }
 
     // Seleccionar un índice aleatorio
-    const index = Math.floor(Math.random() * dispobjetos.length);
+    const index = Math.floor(Math.random() * objetos.length);
 
     // Añadir el par correspondiente al array de pares y eliminarlos de los arrays originales
     randomPairs.push({
-      objeto: dispobjetos[index],
-      precio: dispprecios[index],
+      objeto: objetos[index],
+      precio: precios[index],
     });
-    dispobjetos.splice(index, 1);
-    dispprecios.splice(index, 1);
+    objetos.splice(index, 1);
+    precios.splice(index, 1);
   }
 
   // Shuffle de manera aleatoria los pares de objetos y precios
@@ -198,28 +201,61 @@ function dibujarJuego(items) {
     
       // Obtener la ruta de la imagen del objeto
       const objetoImagePath = items.objetos[index];
-  
+      console.log(objetoImagePath[10]);
+      console.log(precioImagePath[10])
       // Verificar si las rutas de las imágenes coinciden (el núnemero)
       if (objetoImagePath[10] === precioImagePath[10]) {
-      //Checar salidas en consola
-      //  console.log(objetoImagePath);
-      //  console.log(precioImagePath);
-      //  console.log(objetoImagePath[10]);
-      //  console.log(precioImagePath[10]);
         puntaje +=100;
-        alert("¡Acertado!");
+        // alert("¡Acertado!");
+        //audio
+        audioObjeto.src = "audio/audio" + objetoImagePath[10] + ".mp3";
+        audioNombre.src = "audio/nombre" + objetoImagePath[10] + ".mp3";
+        audioObjeto.play();
+        setTimeout(function(){
+          audioNombre.play();
+        },5000)
+        // Obtener el elemento que se soltó
+        var id = e.dataTransfer.getData('id');
+        var elemento = document.getElementById(id);
+        
+        // Obtener el contexto 2D del lienzo sobre el cual se soltó
+        var lienzo = e.target.getContext('2d');
+        // Dibujar la imagen  dentro del lienzo
+        var img = new Image();
+        img.src = elemento.src; // Asignar la misma imagen al nuevo objeto de imagen
+        img.onload = function() {
+            //Ancho y alto de la imagen
+            let widthP = 250;
+            let heightP = img.height * widthP / img.width;
+            lienzo.drawImage(img, 25, 0, widthP, heightP);
+        };
+        esconder = true;
+        numObj++;
+        if(numObj==3){//siguiente nivel
+          setTimeout(nivel2,10000);
+        }else if(numObj == 6){//fin del juego
+          setTimeout(function(){
+            window.location.href = "felicitaciones.html";
+          },10000);
+        }
       } else {
-      //Checar salidas en consola
-      //  console.log(objetoImagePath);
-      //  console.log(precioImagePath);
-      //  console.log(objetoImagePath[10]);
-      //  console.log(precioImagePath[10]);
+        //audio
+        audioObjeto.src = "audio/error.mp3";
+        audioObjeto.play();
+        //
+        let idIncorrecto = e.dataTransfer.getData('id');
+        let imgIncorrecta = document.getElementById(idIncorrecto);
+        let indexIncorrecto = idIncorrecto.charAt(idIncorrecto.length - 1);
+        let precio_cont = "precio" + indexIncorrecto;
+        let divPrecioInc = document.getElementById(precio_cont);
+        divPrecioInc.appendChild(imgIncorrecta);
+        esconder = false;
         if(puntaje<100){
           puntaje =0;
         }else{
           puntaje -=50;
         } 
-        alert("¡Falló!");
+        // alert("¡Falló!");
       }
       document.getElementById("scoreValue").textContent = puntaje;
     });
@@ -241,31 +277,19 @@ function loadImages(imagePaths) {
   return Promise.all(promises);
 }
 
-function soltar(e) {
-  e.preventDefault();
+// function soltar(e) {
+//   e.preventDefault();
   
-  // Obtener el elemento que se soltó
-  var id = e.dataTransfer.getData('id');
-  var elemento = document.getElementById(id);
   
-  // Obtener el contexto 2D del lienzo sobre el cual se soltó
-  var lienzo = e.target.getContext('2d');
-
-  
-  // Dibujar la imagen  dentro del lienzo
-  var img = new Image();
-  img.src = elemento.src; // Asignar la misma imagen al nuevo objeto de imagen
-  img.onload = function() {
-      //Ancho y alto de la imagen
-      let widthP = 250;
-      let heightP = img.height * widthP / img.width;
-      lienzo.drawImage(img, 25, 0, widthP, heightP);
-  };
-}
+// }
 
 function finalizado(e){
   elemento = e.target;
-  elemento.style.visibility = 'hidden';
+  if(esconder){
+    elemento.style.visibility = 'hidden';
+  }else{
+    elemento.style.visibility = 'visible';
+  }
 }
 
 
@@ -274,3 +298,26 @@ loadImages([...objetos, ...precios]).then(() => {
   const iniciar = getRandomItems();
   dibujarJuego(iniciar); // Iniciar el juego
 });
+
+function nivel2(){
+  
+  // Obtener todos los elementos con la clase "precio"
+  let elementosPrecio = document.querySelectorAll('.precio');
+
+  // Iterar sobre cada elemento y eliminar todos sus hijos
+  elementosPrecio.forEach(elemento => {
+      while (elemento.firstChild) {
+          elemento.removeChild(elemento.firstChild);
+      }
+      // Obtener todos los elementos con la clase "objeto"
+      let canvasList = document.querySelectorAll('.objeto');
+
+      // Iterar sobre cada canvas y limpiarlo
+      canvasList.forEach(canvas => {
+          let ctx = canvas.getContext('2d');
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+  });
+  const iniciar2 = getRandomItems();
+  dibujarJuego(iniciar2); // Iniciar el juego
+}
