@@ -9,7 +9,7 @@ var audioJuego = new Audio();
 
 
 function verPuntos(){
-    window.location.href = "puntuaciones.html";
+  window.location.href = "puntuaciones.html";
 }
 
 function irJuego() {

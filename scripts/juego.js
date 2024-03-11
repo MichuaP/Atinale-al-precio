@@ -3,8 +3,9 @@ var tiempo = 0;
 var cronometro;
 var running = false;
 var puntaje = 0;
-var mejorTiempo = 0;
+var mejorTiempo="";
 var nombreJ ="";
+var time=0;
 
 setTimeout(function () {
   startStop();
@@ -58,7 +59,7 @@ document.getElementById("musica").addEventListener("click", function () {
 /* ------------ JUEGO --------------- */
 // Obtener todos los elementos con la clase "objeto"
 var elementosObjeto = document.querySelectorAll('.objeto');
-var esconder = true;
+var esconder;
 var audioObjeto = new Audio();
 var audioNombre = new Audio();
 var numObj = 0;
@@ -137,8 +138,6 @@ function mezclarArray(array) {
   }
   return array;
 }
-
-
 
 function dibujarJuego(items) {
    // Iterar sobre los objetos y dibujarlos en los canvas
@@ -280,12 +279,6 @@ function loadImages(imagePaths) {
   return Promise.all(promises);
 }
 
-// function soltar(e) {
-//   e.preventDefault();
-  
-  
-// }
-
 // Se saca el alias de local
 nombreJ = localStorage.alias;
 console.log("Name: "+nombreJ);
@@ -296,6 +289,9 @@ var puntuaciones=localStorage.getItem("puntuaciones");
 // Se convierte el array
 puntuaciones=JSON.parse(puntuaciones);
 
+var aliasEncontrado;
+var index;
+
 // Si no existe se crea
 if(puntuaciones==null){
     puntuaciones=[];
@@ -304,23 +300,38 @@ if(puntuaciones==null){
 }else{
     // Lo recorremos
     for(var i in puntuaciones){
-        var partida = puntuaciones[i];
-        // Si existe el alias
-        if (nombreJ == partida.alias){
-            console.log(partida.alias+ " si existe");
-            mejorTiempo = partida.tiempo;
-            // Se ingresa la mejor puntuación al juego
-            document.getElementById("bestTime").innerHTML = mejorTiempo;
-        }else{
-            // No existe el alias en el array
-            mejorTiempo = 0;
-            document.getElementById("bestTime").innerHTML = mejorTiempo;
-            puntos = 0;
-            localStorage.puntos = puntos;
-            localStorage.tiempo =0;
-            console.log("no existe");
-        }
+      var partida = puntuaciones[i];
+      // Si existe el alias
+      if (nombreJ == partida.alias){
+        console.log(partida.alias+ " si existe");
+        time = partida.tiempo;
+        mejorTiempo = formatTime(partida.tiempo);
+        console.log("El mejor tiempo es:"+ mejorTiempo);
+        // Se ingresa la mejor puntuación al juego
+        document.getElementById("bestTime").innerHTML = mejorTiempo;
+        aliasEncontrado = true;
+        
+        partida.tiempo = time;
+        puntuaciones[i] = partida;
+      }
     }
+    if(!aliasEncontrado){
+      // No existe el alias en el array
+      time = 0;
+      document.getElementById("bestTime").innerHTML = "0";
+      puntos = 0;
+      localStorage.puntos = puntos;
+      localStorage.tiempo =0;
+      console.log("no existe");
+    }
+}
+
+function formatTime(tiempo){
+    var min = Math.floor(tiempo / 60);
+    var seg = tiempo % 60;
+    var tiempoFormat = min+ "'" +seg+"''";
+    console.log("El tiempo formateado es de: "+ tiempoFormat);
+    return tiempoFormat;
 }
 
 // Se ingresa el nombre al juego
@@ -331,25 +342,32 @@ document.getElementById("name").innerHTML = localStorage.alias;
   localStorage.tiempo = tiempo;
   localStorage.puntos = puntaje;
   localStorage.alias = nombreJ;
+  localStorage.mejorTiempo = formatTime(tiempo); //se agrega el tiempo formateado
+
    console.log("entra a agregar partida");
    var partida;
-   var partidaEncontrada = false;
+   var partidaEncontrada;
    //recorremos el array para comparar tiempos
    for(var i in puntuaciones){
-     partida = puntuaciones[i];
-     if (nombreJ == partida.alias){ //si existe el nombre
-       console.log(partida.alias+ " si existe el nombre");
+        partida = puntuaciones[i];
+        if (nombreJ == partida.alias){ //si existe el nombre
+        console.log(partida.alias+ " si existe el nombre");
 
-       partidaEncontrada = true;
+        partidaEncontrada = true;
+        console.log("El tiempo de juego es de: "+tiempo);
+        console.log("El mejor tiempo guardado es: "+partida.tiempo);
+        console.log("La puntuación es de :"+ puntaje);
+        partida.puntos += puntaje;
+        console.log("la nueva puntuación es de: "+partida.puntos);
 
-       if(partida.mejorTiempo<tiempo){
-         partida.mejorTiempo = tiempo;
-         console.log("El tiempo es mejor");
-       }else{
-         console.log("El tiempo es peor");
-       }
-       break;
-     }
+        if(tiempo<partida.tiempo){
+            partida.tiempo = tiempo;
+            console.log("El tiempo es mejor");
+            break;
+        }else{
+            console.log("El tiempo es peor");
+        }
+    }
   } 
   // Si el nombre del jugador no existe en ninguna partida, crear una nueva partida
   if (!partidaEncontrada) {
