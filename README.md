@@ -1,5 +1,5 @@
 # Atínale al precio - Web App
-PriceGuess is a fun and interactive web-based game where players test their market knowledge by guessing the prices of various items — including watches, houses, smartphones, and more. 
+"Atínale al precio" is a fun and interactive web-based game where players test their market knowledge by guessing the prices of various items — including watches, houses, smartphones, and more. 
 Built with HTML, CSS, and JavaScript, the game offers a clean and fun experience.
 <br/><br/>
 ## Academic context
